@@ -16,4 +16,5 @@ jobs:
       - uses: actions/setup-python@master
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install gmpy2
+      - run: pip install gmpy2 || true  # Passes on macOS but fails on Linux and Windows
+      - run: pip install gmpy2>=2.1.0b4
